@@ -62,10 +62,10 @@ var Note = React.createClass({
 					<button type="button" className="btn btn-success">卖</button></div>
 					<div><button type="button" className="btn btn-info">平</button>
 					<button type="button" className="btn btn-warning">撤</button></div>
-					<h6><label>买价：</label><span>20.22</span></h6>
-					<h6><label>数量：</label><span>100</span></h6>
-					<h6><label>卖价：</label><span>20.22</span></h6>
-					<h6><label>数量：</label><span>100</span></h6>
+					<h6><label>买价：</label><input type="text" value="22.00"/></h6>
+					<h6><label>数量：</label><input type="text" value="200"/></h6>
+					<h6><label>卖价：</label><input type="text" value="21.00"/></h6>
+					<h6><label>数量：</label><input type="text" value="600"/></h6>
 				</div>
 				<span><button onClick={this.remove}
                             className="btn btn-danger glyphicon glyphicon-trash"/></span>
@@ -97,7 +97,7 @@ var Board=React.createClass({
 			if(typeof props[propName]!=="number"){
 				return new Error('The count property must be a number');
 			}
-			if(props[proName]>100){
+			if(props[proName]>5){
 				return new Error('Creating' + props[propName] +"notes is ridiculous");
 			}
 		}

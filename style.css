@@ -47,8 +47,12 @@ div.note div{
 .stock_info{
 	width:150px;
 	height:425px;
-	text-align: center;
-	
+	text-align: center;	
+}
+
+.stock_info input{
+	width:50px;
+	color:black;
 }
 .table_name{
 	width:20px;
