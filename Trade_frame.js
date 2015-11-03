@@ -1,4 +1,4 @@
-var Note = React.createClass({
+var TradeFrame = React.createClass({
     getInitialState: function() {
         return {editing: false}
     },
@@ -17,7 +17,7 @@ var Note = React.createClass({
     },
     renderDisplay: function() {
         return (
-            <div className="note">
+            <div className="trade_frame">
 				<div className="stock_title"><h4><label>浦发银行</label><span>600000</span></h4></div>
 				<div className="table_name">
 					<div className="buy">买盘</div>
@@ -72,22 +72,9 @@ var Note = React.createClass({
             </div>
             );
     },
-    renderForm: function() {
-        return (
-            <div className="note">
-            <textarea ref="newText" defaultValue={this.props.children} 
-            className="form-control"></textarea>
-            <button onClick={this.save} className="btn btn-success btn-sm glyphicon glyphicon-floppy-disk" />
-            </div>
-            )
-    },
+ 
     render: function() {
-        if (this.state.editing) {
-            return this.renderForm();
-        }
-        else {
             return this.renderDisplay();
-        }
     }
 });
 
@@ -98,45 +85,45 @@ var Board=React.createClass({
 				return new Error('The count property must be a number');
 			}
 			if(props[proName]>5){
-				return new Error('Creating' + props[propName] +"notes is ridiculous");
+				return new Error('Creating' + props[propName] +"TradeFrame is ridiculous");
 			}
 		}
 	},
 	getInitialState:function(){
 		return{
-			notes:[
+			tradeframes:[
 				
 			]
 		};
 	},
 	add:function(text){
-		var arr=this.state.notes;
+		var arr=this.state.tradeframes;
 		arr.push(text);
-		this.setState({notes:arr});
+		this.setState({tradeframes:arr});
 	},
 	update:function(newText,i){
-		var arr=this.state.notes;
+		var arr=this.state.tradeframes;
 		arr[i]=newText;
-		this.setState({notes:arr});
+		this.setState({tradeframes:arr});
 	},
 	remove:function(i){
-		var arr=this.state.notes;
+		var arr=this.state.tradeframes;
 		arr.splice(i,1);
-		this.setState({note:arr});
+		this.setState({tradeframes:arr});
 	},
-	eachNote:function(note,i){
+	eachTradeFrame:function(tradeframe,i){
 		return(  
-			 <Note key={i}
+			 <TradeFrame key={i}
                     index={i}
                     onChange={this.update}
                     onRemove={this.remove}
-              >{note}</Note>
+              >{tradeframe}</TradeFrame>
 			  );
 	},
 	render:function(){
 		return (<div className="board">{
-				this.state.notes.map(this.eachNote)}
-				<button className="btn btn-success glyphicon glyphicon-plus" onClick={this.add.bind(null,"New Note")}/>
+				this.state.tradeframes.map(this.eachTradeFrame)}
+				<button className="btn btn-success glyphicon glyphicon-plus" onClick={this.add.bind(null,"New TradeFrames")}/>
 				</div>
 							);
 }

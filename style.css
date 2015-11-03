@@ -24,7 +24,7 @@ div.board {
 
 
 
-div.note {
+div.trade_frame {
     height: 475px;
     width: 270px;
     background-color: black;
@@ -36,7 +36,7 @@ div.note {
     box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
 }
 
-div.note div{
+div.trade_frame div{
 	float:left;
 }
 .stock_title{
@@ -100,33 +100,33 @@ div.note div{
 }
 
 
-div.note:active {
+div.trade_frame:active {
     cursor: -webkit-grabbing;
 }
 
-div.note table{
+div.trade_frame table{
 	width:100px;
 	text-align: center;
 }
 
-div.note table td{
+div.trade_frame table td{
 	margin-top: 2px;
 	border:1px solid red;
 	width:100px
 }
 
 
-div.note p {
+div.trade_frame p {
     font-size: 22px;
     padding: 5px;
     font-family: "Shadows Into Light", Arial;
 }
 
-div.note:hover > span {
+div.trade_frame:hover > span {
     opacity: 1;
 }
 
-div.note > span {
+div.trade_frame > span {
     position: absolute;
     bottom: 2px;
     right: 2px;
@@ -134,11 +134,11 @@ div.note > span {
     transition: opacity .25s linear;
 }
 
-div.note button {
+div.trade_frame button {
     margin: 2px;
 }
 
-div.note > textarea {
+div.trade_frame > textarea {
     height: 75%;
     background: rgba(255, 255, 255, .5);
 }
