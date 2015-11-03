@@ -18,7 +18,9 @@ var TradeFrame = React.createClass({
     renderDisplay: function() {
         return (
             <div className="trade_frame">
-				<div className="stock_title"><h4><label>浦发银行</label><span>600000</span></h4></div>
+				<div className="stock_title" ><h4><label>浦发银行</label><span>600000</span></h4>
+				<input type="text" className="form-control"/>
+			</div>
 				<div className="table_name">
 					<div className="buy">买盘</div>
 					<div className="sell">卖盘</div>
@@ -62,10 +64,8 @@ var TradeFrame = React.createClass({
 					<button type="button" className="btn btn-success">卖</button></div>
 					<div><button type="button" className="btn btn-info">平</button>
 					<button type="button" className="btn btn-warning">撤</button></div>
-					<h6><label>买价：</label><input type="text" value="22.00"/></h6>
+					<h6><label>价格：</label><input  type="text" value="22.00"/></h6>
 					<h6><label>数量：</label><input type="text" value="200"/></h6>
-					<h6><label>卖价：</label><input type="text" value="21.00"/></h6>
-					<h6><label>数量：</label><input type="text" value="600"/></h6>
 				</div>
 				<span><button onClick={this.remove}
                             className="btn btn-danger glyphicon glyphicon-trash"/></span>
