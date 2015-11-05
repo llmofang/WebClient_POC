@@ -25,7 +25,9 @@ var TradeFrame = React.createClass({
     getInitialState: function() {
         return {editing: false,
 				price:0.00,
-				amount:0
+				amount:0,
+				stock_name:'600000',
+				stock_code:'浦发银行'
 			   }
     },
     edit: function() {
@@ -52,8 +54,8 @@ var TradeFrame = React.createClass({
     renderDisplay: function() {
         return (
             <div className="trade_frame">
-				<div className="stock_title" ><h4><label>浦发银行</label><span>600000</span></h4>
-				<input type="text" className="form-control"/>
+				<div className="stock_title" ><h4><label>{this.state.stock_name}</label><span>{this.state.stock_code}</span></h4>
+				<input type="text" className="form-control" placeholder={this.state.stock_name+"  "+this.state.stock_code}/>
 			</div>
 				<div className="table_name">
 					<div className="buy">买盘</div>
