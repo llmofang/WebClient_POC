@@ -1,6 +1,32 @@
+var OrderTable = React.createClass({
+	handleClick:function(){
+		alert('123');
+	},
+	
+	render: function(){
+		return(<table>	
+				<tr><td onClick={this.handleClick}>10.08</td><td>10</td></tr>
+				<tr><td>10.08</td><td>10</td></tr>
+				<tr><td>10.08</td><td>10</td></tr>
+				<tr><td>10.08</td><td>10</td></tr>
+				<tr><td>10.08</td><td>10</td></tr>
+				<tr><td>10.08</td><td>10</td></tr>
+				<tr><td>10.08</td><td>10</td></tr>
+				<tr><td>10.08</td><td>10</td></tr>
+				<tr><td>10.08</td><td>10</td></tr>
+				<tr><td>10.08</td><td>10</td></tr>
+		</table>);
+	}
+	
+})
+
+
 var TradeFrame = React.createClass({
     getInitialState: function() {
-        return {editing: false}
+        return {editing: false,
+				price:0.00,
+				amount:0
+			   }
     },
     edit: function() {
         this.setState({editing: true});
@@ -15,6 +41,14 @@ var TradeFrame = React.createClass({
 	componentDidMount: function(){
         $(this.getDOMNode()).draggable();
     },
+	handleChange:function(name,event){
+		var newState={};
+		newState[name]=event.target.value;
+		this.setState(newState);
+	},
+	handleClick:function(event){
+		this.setState({'price':event.target.innerHTML});
+	},
     renderDisplay: function() {
         return (
             <div className="trade_frame">
@@ -26,29 +60,29 @@ var TradeFrame = React.createClass({
 					<div className="sell">卖盘</div>
 				</div>
                 <div className="trade_info_table">
-					<table>					
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
+					<table>	
+						<tr><td onClick={this.handleClick}>10.01</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.02</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.03</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.04</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.05</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.06</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.07</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.08</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.09</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.00</td><td>10</td></tr>
 					</table>
-					<table>		
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>
-							<tr><td>10.08</td><td>10</td></tr>						
+					<table>	
+						<tr><td onClick={this.handleClick}>10.01</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.02</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.03</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.04</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.05</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.06</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.07</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.08</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.09</td><td>10</td></tr>
+						<tr><td onClick={this.handleClick}>10.00</td><td>10</td></tr>
 					</table>
 				</div>
 				<div className="stock_info">
@@ -64,8 +98,8 @@ var TradeFrame = React.createClass({
 					<button type="button" className="btn btn-success">卖</button></div>
 					<div><button type="button" className="btn btn-info">平</button>
 					<button type="button" className="btn btn-warning">撤</button></div>
-					<h6><label>价格：</label><input  type="text" value="22.00"/></h6>
-					<h6><label>数量：</label><input type="text" value="200"/></h6>
+					<h6><label>价格：</label><input  type="text"  onChange={this.handleChange.bind(this, 'price')} value={this.state.price} /></h6>
+					<h6><label>数量：</label><input type="text" onChange={this.handleChange.bind(this, 'amount')} value={this.state.amount} /></h6>
 				</div>
 				<span><button onClick={this.remove}
                             className="btn btn-danger glyphicon glyphicon-trash"/></span>
