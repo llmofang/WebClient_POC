@@ -160,3 +160,15 @@ div.trade_frame > textarea {
 	
 }
 
+div.table_frame:hover > span {
+    opacity: 1;
+}
+
+
+div.table_frame > span {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    opacity: 0;
+    transition: opacity .25s linear;
+}

@@ -16,23 +16,28 @@ var FrameBoard=React.createClass({
 	showEntrustFrame:function(){
 		
 		if(this.state.entrustFrame){
-			return <EntrustFrame></EntrustFrame>
+			return <EntrustFrame remove={this.remove.bind(this,'entrustFrame')}></EntrustFrame>
 		}
 	},
 	showPositionFrame:function(){
 		if(this.state.positionFrame){
-			return <PositionFrame></PositionFrame>
+			return <PositionFrame remove={this.remove.bind(this,'positionFrame')}></PositionFrame>
 		}
 	},
 	showLogFrame:function(){
 		if(this.state.logFrame){
-			return <LogFrame></LogFrame>
+			return <LogFrame remove={this.remove.bind(this,'logFrame')}></LogFrame>
 		}
 	},
 	showInfoStatFrame:function(){
 		if(this.state.infoStatFrame){
-			return <InfoStatFrame></InfoStatFrame>
+			return <InfoStatFrame remove={this.remove.bind(this,'infoStatFrame')}></InfoStatFrame>
 		}
+	},
+	remove:function(name){
+		var newState={};
+		newState[name]=false;
+		this.setState(newState);
 	},
 	render:function(){
 		return (
@@ -77,7 +82,8 @@ var EntrustFrame=React.createClass({
     },
 	render:function(){
 		return	(
-			<div className="table_frame" id="entrust_frame">
+			<div className="table_frame">
+			<span><button onClick={this.props.remove} className="btn btn-danger glyphicon glyphicon-trash"/></span>
 			<div className="table_title"><h4>委托</h4></div>
 			<table className="table table-bordered table-striped table-condensed table-hover">
 				<thead>
@@ -128,6 +134,7 @@ var PositionFrame=React.createClass({
 		return	(
 			<div className="table_frame">
 			<div className="table_title"><h4>仓位</h4></div>
+			<span><button onClick={this.props.remove} className="btn btn-danger glyphicon glyphicon-trash"/></span>
 			<table className="table table-bordered table-striped table-condensed table-hover">
 				<thead>
 					<tr>
@@ -173,6 +180,7 @@ var LogFrame=React.createClass({
 		return	(
 			<div className="table_frame">
 			<div className="table_title"><h4>交易记录</h4></div>
+			<span><button onClick={this.props.remove} className="btn btn-danger glyphicon glyphicon-trash"/></span>
 			<table className="table table-bordered table-striped table-condensed table-hover">
 				<thead>
 					<tr>
@@ -222,6 +230,7 @@ var InfoStatFrame=React.createClass({
 		return	(
 			<div className="table_frame">
 			<div className="table_title"><h4>信息统计</h4></div>
+			<span><button onClick={this.props.remove} className="btn btn-danger glyphicon glyphicon-trash"/></span>
 			<table className="table table-bordered table-striped table-condensed table-hover">
 				<thead>
 					<tr>
