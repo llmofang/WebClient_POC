@@ -13,11 +13,16 @@ var FrameBoard=React.createClass({
 })
 
 var EntrustFrame=React.createClass({
+	getInitialState:function(){
+		return{
+			
+		};
+	},
 	render:function(){
 		return	(
 			<div className="table_frame">
-			<h5>委托</h5>
-			<table className="table table-bordered">
+			<div className="table_title"><h4>委托</h4></div>
+			<table className="table table-bordered table-striped table-condensed table-hover">
 				<thead>
 					<tr>
 						<th>账户</th>
@@ -30,6 +35,17 @@ var EntrustFrame=React.createClass({
 						<th>委托时间</th>
 					</tr>
 				</thead>
+				<tbody>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+				</tbody>
 			</table>
 			</div>
 			)
@@ -38,11 +54,16 @@ var EntrustFrame=React.createClass({
 });
 
 var PositionFrame=React.createClass({
+	getInitialState:function(){
+		return{
+			
+		};
+	},
 	render:function(){
 		return	(
 			<div className="table_frame">
-			<h5>仓位</h5>
-			<table className="table table-bordered">
+			<div className="table_title"><h4>仓位</h4></div>
+			<table className="table table-bordered table-striped table-condensed table-hover">
 				<thead>
 					<tr>
 						<th>账户</th>
@@ -54,6 +75,14 @@ var PositionFrame=React.createClass({
 						<th>平均价格</th>
 					</tr>
 				</thead>
+				<tbody>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+				</tbody>
 			</table>
 			</div>
 			)
@@ -62,11 +91,16 @@ var PositionFrame=React.createClass({
 });
 
 var LogFrame=React.createClass({
+	getInitialState:function(){
+		return{
+			
+		};
+	},
 	render:function(){
 		return	(
 			<div className="table_frame">
-			<h5>交易记录</h5>
-			<table className="table table-bordered">
+			<div className="table_title"><h4>交易记录</h4></div>
+			<table className="table table-bordered table-striped table-condensed table-hover">
 				<thead>
 					<tr>
 						<th>账户</th>
@@ -80,6 +114,15 @@ var LogFrame=React.createClass({
 						<th>交易费用</th>
 					</tr>
 				</thead>
+				<tbody>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+
+				</tbody>
 			</table>
 			</div>
 			)
@@ -88,11 +131,17 @@ var LogFrame=React.createClass({
 });
 
 var InfoStatFrame=React.createClass({
+	getInitialState:function(){
+		return{
+			
+		};
+	},
 	render:function(){
+		
 		return	(
 			<div className="table_frame">
-			<h5>信息统计</h5>
-			<table className="table table-bordered">
+			<div className="table_title"><h4>信息统计</h4></div>
+			<table className="table table-bordered table-striped table-condensed table-hover">
 				<thead>
 					<tr>
 						<th>账户</th>
@@ -105,6 +154,14 @@ var InfoStatFrame=React.createClass({
 						<th>交易费用</th>
 					</tr>
 				</thead>
+				<tbody>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+					<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr>
+				</tbody>
 			</table>
 			</div>
 			)
