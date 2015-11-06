@@ -141,10 +141,12 @@ div.trade_frame > textarea {
 }
 
 .table_frame{
-	float:left;
-	width:50%; 
-	height:50%;
-	border:1px solid gray;
+    margin: 2px 0;
+    position: absolute;
+    cursor: -webkit-grab;
+    -webkit-box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+	border:2px solid gray;
 	overflow：auto;
 		
 }
@@ -157,3 +159,4 @@ div.trade_frame > textarea {
 	text-align: center;
 	
 }
+

@@ -1,11 +1,60 @@
 var FrameBoard=React.createClass({
+	addTableFrame:function(name){
+		var newState={};
+		newState[name]=true;
+		this.setState(newState);
+	},
+	
+	getInitialState:function(){
+		return{
+			entrustFrame:false,
+			positionFrame:false,
+			logFrame:false,
+			infoStatFrame:false
+		}
+	},
+	showEntrustFrame:function(){
+		
+		if(this.state.entrustFrame){
+			return <EntrustFrame></EntrustFrame>
+		}
+	},
+	showPositionFrame:function(){
+		if(this.state.positionFrame){
+			return <PositionFrame></PositionFrame>
+		}
+	},
+	showLogFrame:function(){
+		if(this.state.logFrame){
+			return <LogFrame></LogFrame>
+		}
+	},
+	showInfoStatFrame:function(){
+		if(this.state.infoStatFrame){
+			return <InfoStatFrame></InfoStatFrame>
+		}
+	},
 	render:function(){
 		return (
 			<div className="position_div">
-				<EntrustFrame ></EntrustFrame>
-				<PositionFrame ></PositionFrame>
-				<LogFrame ></LogFrame>
-				<InfoStatFrame></InfoStatFrame>
+				<div className="btn-group">
+				   <button type="button" className="btn btn-default dropdown-toggle" 
+					  data-toggle="dropdown">
+					  添加 <span className="caret"></span>
+				   </button>
+				   <ul className="dropdown-menu" role="menu">
+					  <li><a onClick={this.addTableFrame.bind(this,"entrustFrame")}>委托</a></li>
+					  <li><a onClick={this.addTableFrame.bind(this,"positionFrame")}>仓位</a></li>
+					  <li><a onClick={this.addTableFrame.bind(this,"logFrame")}>交易记录</a></li>
+					  <li><a onClick={this.addTableFrame.bind(this,"infoStatFrame")}>信息统计</a></li>
+				   </ul>
+				</div>
+				<div>
+					{this.showEntrustFrame()}
+					{this.showPositionFrame()}
+					{this.showLogFrame()}
+					{this.showInfoStatFrame()}
+				</div>
 			</div>
 		)
 	}
@@ -18,9 +67,17 @@ var EntrustFrame=React.createClass({
 			
 		};
 	},
+	componentDidMount: function(){
+		$(this.getDOMNode()).resizable({
+      		ghost: true,
+			animate: true
+		});
+        $(this.getDOMNode()).draggable();
+		
+    },
 	render:function(){
 		return	(
-			<div className="table_frame">
+			<div className="table_frame" id="entrust_frame">
 			<div className="table_title"><h4>委托</h4></div>
 			<table className="table table-bordered table-striped table-condensed table-hover">
 				<thead>
@@ -59,6 +116,14 @@ var PositionFrame=React.createClass({
 			
 		};
 	},
+	componentDidMount: function(){
+		$(this.getDOMNode()).resizable({
+      		ghost: true,
+			animate: true
+		});
+        $(this.getDOMNode()).draggable();
+		
+    },
 	render:function(){
 		return	(
 			<div className="table_frame">
@@ -96,6 +161,14 @@ var LogFrame=React.createClass({
 			
 		};
 	},
+	componentDidMount: function(){
+		$(this.getDOMNode()).resizable({
+      		ghost: true,
+			animate: true
+		});
+        $(this.getDOMNode()).draggable();
+		
+    },
 	render:function(){
 		return	(
 			<div className="table_frame">
@@ -136,6 +209,14 @@ var InfoStatFrame=React.createClass({
 			
 		};
 	},
+	componentDidMount: function(){
+		$(this.getDOMNode()).resizable({
+      		ghost: true,
+			animate: true
+		});
+        $(this.getDOMNode()).draggable();
+		
+    },
 	render:function(){
 		
 		return	(
