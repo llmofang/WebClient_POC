@@ -1,19 +1,35 @@
-path      = require('path')
-gulp      = require('gulp')
-gutil     = require('gulp-util')
-sass      = require('gulp-sass')
-clean     = require('gulp-clean')
-minifyCss = require('gulp-minify-css')
-watch     = require('gulp-watch')
-rev       = require('gulp-rev')
-tiny_lr   = require('tiny-lr')
-webpack   = require("webpack")
-express   = require('express')
+path         = require('path')
+gulp         = require('gulp')
+gutil        = require('gulp-util')
+
+sass         = require('gulp-sass')
+autoprefixer = require('gulp-autoprefixer')
+minifyCss    = require('gulp-minify-css')
+
+jshint       = require('gulp-jshint')
+uglify       = require('gulp-uglify')
+
+concat       = require('gulp-concat')
+
+imagemin     = require('gulp-imagemin')
+cache        = require('gulp-cache')
+
+clean        = require('gulp-clean')
+
+notify       = require('gulp-notify')
+
+watch        = require('gulp-watch')
+rev          = require('gulp-rev')
+tiny_lr      = require('tiny-lr')
+webpack      = require("webpack")
+express      = require('express')
+
 
 webpackConfig  = require("./webpack.config.js")
 if gulp.env.production
     webpackConfig.plugins = webpackConfig.plugins.contact(new webpack.optimize.UglifyJsPlugin())
     webpackConfig.output.filename = "main-[hash].js"
+
 sassConfig = { includePaths : ['src/styles']}
 httpPort = 4000
 
@@ -26,9 +42,13 @@ gulp.task 'clean', ->
 gulp.task 'sass', ->
   gulp.src('src/styles/main.scss')
   .pipe(sass(sassConfig).on('error', gutil.log))
+  .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
   .pipe(if gulp.env.production then minifyCSS() else gutil.noop())
   .pipe(if gulp.env.production then rev() else gutil.noop())
-  .pipe(gulp.dest('dist/assets'))
+  .pipe(gulp.dest('dist/assets/css'))
     
     
 gulp.task 'vendor', ->
