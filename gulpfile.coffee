@@ -14,6 +14,8 @@ concat       = require('gulp-concat')
 imagemin     = require('gulp-imagemin')
 cache        = require('gulp-cache')
 
+jade         = require('gulp-jade')
+
 clean        = require('gulp-clean')
 
 notify       = require('gulp-notify')
@@ -49,7 +51,14 @@ gulp.task 'sass', ->
   .pipe(if gulp.env.production then minifyCSS() else gutil.noop())
   .pipe(if gulp.env.production then rev() else gutil.noop())
   .pipe(gulp.dest('dist/assets/css'))
-    
+
+gulp.task 'jade', ->
+  gulp.src('src/jade/*.jade')
+  .pipe(jade({
+      client: true
+    }))
+  .pipe(gulp.dest('./dist/'))
+
     
 gulp.task 'vendor', ->
   paths = vendorPaths.map (p) -> path.resolve("./bower_components", p)
