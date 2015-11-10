@@ -32,12 +32,12 @@ gulp.task 'vendor',['bower'],->
 		.pipe(gulp.dest('dist/assets/vendor'))
 
 gulp.task 'sass', ->
-	#console.log argv 
-	gulp.src('src/styles/*.scss')
+	#console.log argv
+	gulp.src(['src/styles/bootstrap.scss','src/styles/*.scss'])
 		.pipe(sass())
-		.pipe(concat('main.css'))
+		.pipe(concat('main.css',{newLine: '\n/***********************************************************************/\n'}))
 		.pipe(if argv.production then minifyCSS() else gutil.noop())
-		.pipe(if argv.production then rev() else gutil.noop())		
+		.pipe(if argv.production then rev() else gutil.noop())
 		.pipe(gulp.dest('dist/assets/'))
 
 gulp.task 'copy-assets', ->
@@ -84,7 +84,8 @@ gulp.task 'builddev',['webpack:build-dev','sass','copy-assets']
 
 gulp.task 'default',->
 	if argv.production  then gulp.start 'build' else  gulp.start 'builddev';gulp.start 'watch'
-	
+
 gulp.task 'watch', ['sass', 'copy-assets', 'webpack-dev-server'], ->
 	gulp.watch(['src/styles/**'], ['css'])
+	gulp.watch(['src/scripts/**'], ['webpack:build-dev'])
 	gulp.watch(['assets/**'], ['copy-assets'])

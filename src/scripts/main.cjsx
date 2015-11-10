@@ -1,18 +1,40 @@
 require '../../dist/assets/main.css'
 React = require 'react'
-window.React = React
 ReactDOM = require 'react-dom'
-render = ReactDOM.render;
+render = ReactDOM.render
 Router = require('react-router').Router
 Route = require('react-router').Route
-createMemoryHistory = require('history/lib/createMemoryHistory')
+IndexRoute = require('react-router').IndexRoute
+history = require('history').createHistory()
 
-App = require './components/app'
-routes = 
-	<Router history={createMemoryHistory()}>
-		<Route>
-			<Route path="/" component={App} />
+
+window.React = React
+window.ReactDom = ReactDOM
+
+Header 		= require './components/shared/header.cjsx'
+Welcome		= require './components/welcome'
+Login			= require './components/login'
+Page2 		= require './components/page2'
+
+Wrapper = React.createClass
+
+
+
+  render:->
+        <div>
+            <Header />
+            <div className="container main">
+              {this.props.children}
+            </div>
+        </div>
+
+routes =
+	<Router history={history}>
+		<Route path="/" component={Wrapper}>
+			<IndexRoute component={Welcome} />
+			<Route path="login" component={Login} />
+			<Route path="page2" component={Page2} />
 		</Route>
 	</Router>
-	
-render  routes,document.getElementById 'app'
+
+render  (routes) ,document.getElementById 'app'
